@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dating Profiles</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+   
+</head>
+<body>
+    <header>
+        <nav class="container navbar">
+            <!-- Left side - All Profiles -->
+            <div class="logo-container">
+                <button id="allProfilesBtn" class="nav-button active">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>All Profiles</span>
+                </button>
+            </div>
+
+            <!-- Right side - Search and Favorites -->
+            <div class="right-section">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search profiles...">
+                </div>
+                <div class="nav-buttons">
+                    <button id="favoritesBtn" class="nav-button">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Favorites</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="loading" class="loading-spinner">Loading...</div>
+            <div class="profiles-grid" id="profilesContainer"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dating Profiles. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="assets/js/api.js"></script>
+    <script type="module" src="assets/js/favorites.js"></script>
+    <script type="module" src="assets/js/profileList.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const allProfilesBtn = document.getElementById('allProfilesBtn');
+            const favoritesBtn = document.getElementById('favoritesBtn');
+
+            allProfilesBtn.addEventListener('click', function() {
+                allProfilesBtn.classList.add('active');
+                favoritesBtn.classList.remove('active');
+                profileList.showFavoritesOnly = false;
+                profileList.renderProfiles();
+            });
+
+            favoritesBtn.addEventListener('click', function() {
+                favoritesBtn.classList.add('active');
+                allProfilesBtn.classList.remove('active');
+                profileList.showFavoritesOnly = true;
+                profileList.renderProfiles();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+/* Media Queries */
+
+/* Small Mobile (under 480px) */
+@media screen and (max-width: 480px) {
+  
+    .profile-card {
+      margin: 0 -1rem;
+      border-radius: 0;
+    }
+  
+    .profile-header {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .profile-name {
+      font-size: 1.2rem;
+    }
+  
+    .profile-info {
+      padding: 0.5rem;
+    }
+  
+    .profile-stats {
+      grid-template-columns:repeat(3, 1fr);; /* Stack stats vertically on small screens */
+    }
+  }
+  
+  /* Tablet (768px and up) */
+  @media screen and (min-width: 768px) {
+    .profiles-grid {
+      grid-template-columns: repeat(3, 1fr);;
+    }
+  
+    .profile-header {
+      width: 400px;
+    }
+  
+    .profile-stats {
+      grid-template-columns: repeat(3, 1fr);; /* Adjust to 2 columns on tablet */
+    }
+  }
+  
+  /* Desktop (1024px and up) */
+  @media screen and (min-width: 1024px) {
+    .profiles-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .profile-header {
+      width: 450px;
+    }
+  
+    .profile-stats {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+    }
+  }
+  
+  /* Large Desktop (1280px and up) */
+  @media screen and (min-width: 1280px) {
+    .profiles-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .profile-header {
+      width: 500px;
+    }
+  
+    .profile-stats {
+      grid-template-columns: repeat(3, 1fr); /* 4 columns for large screens */
+    }
+  }
+
+
+  /* Responsive Navbar */
+@media screen and (max-width: 768px) {
+  .navbar {
+      padding: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+  }
+
+  .right-section {
+      width: 100%;
+      order: 2;
+      justify-content: space-between;
+      margin-left: 0;
+  }
+
+  .search-box {
+      width: 100%;
+      margin: 0;
+      order: 1;
+  }
+
+  .nav-buttons {
+      gap: 0.5rem;
+  }
+
+  .nav-button {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+  }
+
+  .nav-button svg {
+      width: 18px;
+      height: 18px;
+      margin-right: 4px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+      padding: 0.75rem;
+  }
+
+  .logo-container {
+      min-width: auto;
+  }
+
+  .nav-button span {
+      display: none;
+  }
+
+  .nav-button {
+      padding: 0.4rem;
+  }
+
+  .nav-button svg {
+      margin-right: 0;
+  }
+
+  #searchInput {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+  }
+}
+
